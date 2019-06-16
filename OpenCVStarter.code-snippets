@@ -1,0 +1,35 @@
+{
+	"Open": {
+		"prefix": "startOpen",
+		"body": [
+		"#include <iostream>",
+		"#include \"opencv2/opencv.hpp\"",
+		"",
+		"using namespace std;",
+		"using namespace cv;",
+		"",
+		"int main(int argv, char** argc){",
+		"    if (cuda::getCudaEnabledDeviceCount() < 1){",
+		"        cout << \"ERROR: Could not find a Cuda enabled device on this machine.\" << endl;",
+		"        return -1;",
+		"    }",
+		"",
+		"    Mat h_src = imread(\"images/template.png\", IMREAD_UNCHANGED);",
+		"    cuda::GpuMat d_src;",
+		"",
+		"    Mat h_resoult;",
+		"    cuda::GpuMat d_resoult;",
+		"",
+		"    d_src.upload(h_src);",
+		"",
+		"",
+		"",
+		"",
+		"    d_resoult.download(h_resoult);",
+		"    return 0;",
+		"}",
+		""
+		],
+		"description": "Generates simple opencv starter code."
+  	}
+}
